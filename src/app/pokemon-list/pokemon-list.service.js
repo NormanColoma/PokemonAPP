@@ -14,7 +14,7 @@
 
     function listService($http){
 
-        var url = 'http://localhost:8080/pokemons';
+        var url = 'https://pokemonrestapi.herokuapp.com/pokemons';
 
         var service = {
             addPokemon: addPokemon,
@@ -88,7 +88,7 @@
         function getTypes(){
             return $http({
                 method  : 'GET',
-                url     : 'http://localhost:8080/types',
+                url     : 'https://pokemonrestapi.herokuapp.com/types',
 
             })
                 .then(getTypesSuccess)
