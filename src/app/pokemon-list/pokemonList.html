@@ -1,0 +1,15 @@
+<div class="main-list" ng-controller="PokemonListController as pokemonListVm" ng-init="pokemonListVm.getList()">
+
+    <div class="list-group">
+        <a href="#" ng-repeat="pokemon in pokemonListVm.pokemons" class="list-group-item"
+        ng-click="pokemonListVm.selectPokemon(pokemon._links.pokemon.href)" ng-if="pokemonListVm.pokemonSelected==null && pokemonListVm.view != 'add'">
+            <h4 class="list-group-item-heading">{{pokemon.name}}</h4>
+            <p class="list-group-item-text">{{pokemon.description}}</p>
+        </a>
+    </div>
+
+    <input type="button" value="Añadir Pokemon" class="btn btn-default" ng-click="pokemonListVm.showView('add')" ng-hide="pokemonListVm.view == 'add' || pokemonListVm.pokemonSelected!=null">
+<pokemon-detail ng-if="pokemonListVm.pokemonSelected!=null && pokemonListVm.view!='edit'"></pokemon-detail>
+<new-pokemon ng-if="pokemonListVm.view=='add'"></new-pokemon>
+<pokemon-edit ng-if="pokemonListVm.view=='edit'"></pokemon-edit>
+</div>

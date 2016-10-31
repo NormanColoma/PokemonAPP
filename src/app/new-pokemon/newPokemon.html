@@ -1,0 +1,41 @@
+<h2>Nuevo Pokemon</h2>
+<form ng-init="pokemonListVm.getTypes()"  name="pokemonForm" ng-submit="pokemonForm.$valid && pokemonListVm.addPokemon(pokemonListVm.pokemon, pokemonForm)" novalidate>
+    <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" class="form-control" id="name" ng-model="pokemonListVm.pokemon.name"
+               ng-minlength="2" ng-maxlength="30" required>
+    </div>
+    <div class="form-group">
+        <label for="desc">Descripción:</label>
+        <textarea type="text" class="form-control" id="desc"  ng-model="pokemonListVm.pokemon.description"
+                  ng-minlength="30" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="evolution">Evolución:</label>
+        <input type="text" class="form-control" id="evolution"  ng-model="pokemonListVm.pokemon.evolution">
+    </div>
+
+    <div class="form-group">
+        <label for="type1">Tipo 1:</label>
+        <select class="form-control" id="type1" ng-model="pokemonListVm.type1" required>
+            <option value="">Selecciona un tipo</option>
+            <option ng-repeat="type in pokemonListVm.types" value="{{type._links.type.href}}">
+                {{type.name}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="type2">Tipo 2:</label>
+        <select class="form-control" id="type2"  ng-model="pokemonListVm.type2">
+            <option value="">Selecciona un tipo</option>
+            <option ng-repeat="type in pokemonListVm.types" value="{{type._links.type.href}}">
+                {{type.name}}
+            </option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-default" ng-disabled="pokemonForm.$invalid">Añadir</button>
+    <input type="button" class="btn btn-default" value="Volver" ng-click="pokemonListVm.showView('list')">
+</form>
+

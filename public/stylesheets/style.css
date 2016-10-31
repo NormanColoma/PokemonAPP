@@ -1,0 +1,12 @@
+body {
+  padding: 75px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.input.ng-invalid.ng-touched {
+  border-color: red !important;
+}

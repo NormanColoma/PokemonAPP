@@ -1,0 +1,16 @@
+<div>
+    <h2>{{pokemonListVm.pokemonSelected.name}}</h2>
+    <p><h4>Información:</h4>{{pokemonListVm.pokemonSelected.description}}</p>
+    <p><h4>Evolución:</h4>{{pokemonListVm.pokemonSelected.evolution}}</p>
+
+    <h4>Tipos:</h4>
+    <ul>
+        <li ng-repeat="type in pokemonListVm.pokemonSelected.types">
+            {{type.name}}
+        </li>
+    </ul>
+
+    <input type="button" class="btn btn-default" ng-click="pokemonListVm.backToList()" value="Volver">
+    <input type="button" class="btn btn-default" ng-click="pokemonListVm.showView('edit')" value="Editar">
+    <input type="button" class="btn btn-default" ng-click="pokemonListVm.deletePokemon(pokemonListVm.pokemonSelected._links.pokemon.href)" value="Eliminar">
+</div>
